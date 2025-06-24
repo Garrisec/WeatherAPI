@@ -36,7 +36,7 @@ async function checkCache(req, res, next) {
                 })
             }
     } catch (error) {
-        throw new Error(error)
+        console.log(error)
     }
 }
 
