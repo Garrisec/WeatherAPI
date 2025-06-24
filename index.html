@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <style>
+        body {background-color: rgb(83, 83, 231);}
+        h1 {color: aliceblue; display: flex; justify-content: center;}
+        label {color: aliceblue;}
+        div {display: flex; justify-content: center;}
+    </style>
+</head>
+<body> 
+    <h1>Weather API</h1>
+    <div id="input">
+        <form action="">
+            <label for="Weather">Location:</label>
+            <input type="text" id="weather-location" name="weather-location">
+            <input type="button" id="clickme" name="clickme" value="Ok">
+        </form>
+    </div>
+
+    <div id="output" style="background-color: rgb(97, 152, 255); text-align: center; margin-top: 15px; padding: 5px;">
+
+    </div>
+</body>
+<script>
+        const button = document.getElementById('clickme')
+        const key = document.getElementById('weather-location').value
+
+        button.addEventListener('click', async _ => {
+            try {
+                const response = await fetch('http://localhost:3000/api/weather', {
+                    method: "post",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ key: key })
+                })
+                    .then(data => data.json())
+                    .then(data => {
+                        console.log(data.address)
+                        document.getElementById('output').innerHTML = `Country: ${data.address} <br> Timezone: ${data.timezone} <br> Description: ${data.description} <br> Temp: ${data.days[0].temp}`
+                    })
+            } catch (error) {
+                console.error(`Error: ${error}`)
+            }
+        })
+</script>
+</html>
