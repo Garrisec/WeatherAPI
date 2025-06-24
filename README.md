@@ -18,16 +18,22 @@ git clone https://github.com/Garrisec/WeatherAPI.git
 
 Linux:
 
-2.1
-
 ```
 sudo apt install redis
 ```
-
-2.2 
 
 ```
 sudo systemctl start redis
 ```
 
-3. 
+3. Instalar dependencias
+
+```
+npm install
+```
+
+4. Iniciar servidor
+
+```
+node app.js
+```
