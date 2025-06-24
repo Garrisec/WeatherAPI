@@ -5,7 +5,7 @@
     "redis": "^5.5.6"
   },
   "scripts": {
-    "devStart": "nodemon app.js"
+    "devStart": "npm install && nodemon app.js"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
