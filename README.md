@@ -37,3 +37,9 @@ npm install
 ```
 node app.js
 ```
+
+5. Endpoints
+
+- /api/weather
+    - Method: POST
+    - Exemplo de requisição usando CURL: `curl -s http://localhost:3000/api/weather --request POST --header 'Content-Type: application/json' --data '{"key":"Brazil"}'` 
